@@ -1,0 +1,96 @@
+\:root
+    --primary-color: #f80000
+    --secondary-color: #222
+    --white: #fff
+    --bar-thickness: 1.2rem
+
+*
+    box-sizing: border-box
+
+body,
+html
+    margin: 0
+    height: 100%
+    font: 1rem 'Noto Sans', sans-serif
+
+.tschichold
+    display: grid
+    grid-template-columns: 50px 125px var(--bar-thickness) max-content auto min-content
+    grid-template-rows: 100px 125px var(--bar-thickness) max-content repeat(4, auto) 50px
+    grid-gap: 0px
+    color: var(--secondary-color)
+    width: 900px
+
+    .bar
+        &--hor
+            background-color: var(--primary-color)
+            width: 100%
+            height: var(--bar-thickness)
+            grid-column: 2 / span 6
+            grid-row: 3
+
+        &--ver
+            background-color: var(--primary-color)
+            height: 100%
+            width: var(--bar-thickness)
+            grid-column: 3
+            grid-row: 5 / span 4
+
+        &--dark
+            background-color: var(--secondary-color)
+            height: 100%
+            width: var(--bar-thickness)
+            grid-area: 8 / 9
+
+    .title
+        margin: 0
+        font-size: 5rem
+        line-height: 1
+
+        &--hor
+            grid-column: 5 / span 3
+            grid-row: 4
+
+        &--ver
+            writing-mode: vertical-rl
+            writing-mode: sideways-lr
+            text-align: right
+            grid-column: 4
+            grid-row: 5 / span 3
+
+    .hgroup
+        text-align: right
+        grid-column: 6
+        grid-row: 6
+        line-height: 1
+
+        &__title
+            margin: 0 0 1rem
+            font-size: 2rem
+            font-weight: 400
+
+        &__subtitle
+            margin: 0
+            font-size: 2rem
+
+    .paragraph
+        margin: 0
+        writing-mode: vertical-lr
+        white-space: nowrap
+        grid-column: 9
+        grid-row: 2 / span 6
+
+    .list
+        margin: 0
+        padding: 0
+        list-style: none
+        font-weight: 700
+        font-size: 1rem
+        grid-column: 7 / span 2
+        grid-row: 8
+
+        li
+            padding-right: 1rem
+            white-space: nowrap
+
+
