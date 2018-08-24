@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Acamin';
+  src: url("font/AcuminPro-Thin.woff");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Acamin';
+  src: url("font/AcuminPro-Light.woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Acamin';
+  src: url("font/AcuminPro-Regular.woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Acamin';
+  src: url("font/AcuminPro-Medium.woff");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Acamin';
+  src: url("font/AcuminPro-Bold.woff");
+  font-weight: 700;
+  font-display: swap;
+}
+/*# sourceMappingURL=fonts.css.map */
