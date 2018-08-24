@@ -16,9 +16,13 @@
 
     <div class="ride" style="background-image: url('../img/bike.jpg')">
 
+        <b class="bar"></b>
+        <b class="box"></b>
+        <b class="line"></b>
+
         <a href="/" class="branding-logo">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 29">
-                <title>bicycle-logo</title>
+                <title>Bicycle</title>
                 <g>
                     <path d="M37,29a9,9,0,1,0-9-9,9,9,0,0,0,9,9Zm0-2a7,7,0,1,1,7-7,7,7,0,0,1-7,7Z" />
                     <path d="M38,19.7a1,1,0,0,1-1.92.6L30.56,2H27a1,1,0,0,1,0-2h4.33a1,1,0,0,1,1,.74Z" />
@@ -37,7 +41,18 @@
             <a href="">Bikes</a>
             <a href="">Shop</a>
             <a href="">About</a>
+
+            <button type="submit" class="main-nav__search-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250.31 250.31">
+                    <path d="M244.19,214.6l-54.38-54.37c-.29-.29-.63-.49-.93-.76a103,103,0,1,0-29.42,29.41c.27.3.47.64.76.93l54.38,54.38a20.92,20.92,0,0,0,29.59-29.59ZM102.91,170.15a67.24,67.24,0,1,1,67.24-67.24A67.24,67.24,0,0,1,102.91,170.15Z"
+                    />
+                </svg>
+            </button>
         </nav>
+
+        <!-- <div class="search">
+            <input type="search" class="search__input">
+        </div> -->
 
         <button class="menu-btn" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -55,8 +70,6 @@
             </svg>
         </button>
 
-        <b class="bar"></b>
-
         <div class="product-info">
             <h1 class="product-info__title">Ride in style</h1>
             <p>City Cruiser is designed and built based on the idea that a bicycle should be just as comfortable and elegant
@@ -73,13 +86,14 @@
         </div>
 
         <div class="lang-select">
-            <button type="button">En</button>
+            <button type="button" class="lang-select__btn">En</button>
         </div>
 
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+    <script src="nearby.js"></script>
     <script src="main.js"></script>
 </body>
 
