@@ -35,18 +35,48 @@ calcWinsize()
 window.addEventListener('resize', calcWinsize)
 
 // console.log(winsize)
-console.log(shuffleArray([0, 1, 2, 3, 4, 5]))
-console.log(getRandomNumber(-40, 40))
+// console.log(shuffleArray([0, 1, 2, 3, 4, 5]))
+// console.log(getRandomNumber(-40, 40))
 // window.addEventListener('mousemove', ev => this.mousePos = getMousePos(ev));
 
-
 class Slide {
-  constructor(el) {
+  constructor (el) {
     this.DOM = { el: el }
+    this.DOM.img = this.DOM.el.querySelectorAll('.slide__img')
+
+    // console.log(this.DOM.img)
+  }
+}
+
+class Slideshow {
+  constructor (el) {
+    this.DOM = { el: el }
+    this.slides = []
+    Array.from(this.DOM.el.querySelectorAll('.slide')).forEach(slide => this.slides.push(new Slide(slide)))
+    this.slidesTotal = this.slides.length
+    this.current = 0
+    this.slides[this.current].DOM.el.classList.add('slide--current')
+
+    this.navCtrls = {
+      next: this.DOM.el.querySelector('.nav > .nav__button--next'),
+      prev: this.DOM.el.querySelector('.nav > .nav__button--prev')
+    }
+
+    this.initEvents()
+  }
+  initEvents () {
+    this.navCtrls.next.addEventListener('click', () => this.navigate('next'))
+    this.navCtrls.prev.addEventListener('click', () => this.navigate('prev'))
+  }
+  navigate(direction = 'next') {
+    if (this.isAnimating) return
+    this.isAnimating = true
+
 
   }
 }
 
+new Slideshow(document.querySelector('.slideshow'))
 
 // Preload all the images in the page.
 imagesLoaded(document.querySelectorAll('.slide__img'), { background: true }, () => body.classList.remove('loading'))

@@ -43,9 +43,40 @@ body {
       left: 50%;
       width: 20px;
       height: 20px;
-      background-color: #aaa;
-      transform: translate(-50%, -50%);
+      border: 2px solid #111;
+      animation: loading 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+      transition: transform;
     }
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  12.5% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  37.5% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  62.5% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(270deg);
+  }
+  87.5% {
+    transform: translate(-50%, -50%) rotate(270deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
@@ -138,7 +169,7 @@ body {
   grid-row-start: 1;
   display: flex;
   position: relative;
-  z-index: 999;  
+  z-index: 999;
 
   &__button {
     margin: 0 20px;
@@ -147,7 +178,7 @@ body {
     background: none;
     cursor: pointer;
 
-    &--previous {
+    &--prev {
 
     }
 

@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
-/dist
+.cache
+dist/
 
 # local env files
 .env.local
@@ -20,4 +21,4 @@ yarn-error.log*
 *.sln
 *.sw*
 
-.cache
+gris/slideshow/dist/
