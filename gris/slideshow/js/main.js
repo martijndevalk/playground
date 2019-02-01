@@ -1,4 +1,4 @@
-import { TweenMax, TimelineMax } from 'gsap/TweenMax'
+import { TweenMax, TimelineMax, Power1, Expo, Elastic } from 'gsap/TweenMax'
 import imagesLoaded from 'imagesloaded'
 
 const body = document.body
@@ -86,6 +86,10 @@ class Slideshow {
     this.current = direction === 'next' ? this.current < this.slidesTotal - 1 ? this.current + 1 : 0 : this.current > 0 ? this.current - 1 : this.slidesTotal - 1
     const upcomingSlide = this.slides[this.current]
 
+    // The elements we will animate.
+    const currentImg = currentSlide.DOM.img
+    const upcomingImg = upcomingSlide.DOM.img
+
     this.tl = new TimelineMax({
       onStart: () => {
         upcomingSlide.DOM.el.classList.add('slide--current')
@@ -95,6 +99,49 @@ class Slideshow {
         this.isAnimating = false
       }
     }).add('begin')
+
+    this.tl
+      .set(currentImg, { transformOrigin: direction === 'next' ? '100% 50%' : '0% 50%' })
+
+      .to(currentImg, 0.3, {
+        ease: Power1.easeOut,
+        scaleX: 2,
+        scaleY: 0.95,
+        opacity: 0.5
+      }, 'begin')
+
+      .to(currentImg, 0.5, {
+        ease: Expo.easeOut,
+        x: direction === 'next' ? -1 * winsize.width : winsize.width
+      }, 'begin+=0.2')
+
+      .set(upcomingImg, {
+        transformOrigin: direction === 'next' ? '0% 50%' : '100% 50%',
+        x: direction === 'next' ? winsize.width : -1 * winsize.width,
+        scaleX: 1.5,
+        scaleY: 0.8,
+        opacity: 0.3
+      }, 'begin+=1.05')
+
+      .to(upcomingImg, 0.2, {
+        ease: Expo.easeOut,
+        x: 0
+      }, 'begin+=1.05')
+
+      .to(upcomingImg, 0.6, {
+        ease: Elastic.easeOut.config(1, 0.7),
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      }, 'begin+=1.1')
+
+    this.tl.addCallback(() => {
+      body.classList.add('show-deco')
+    }, 'begin+=0.2')
+
+    this.tl.addCallback(() => {
+      body.classList.remove('show-deco')
+    }, 'begin+=1.1')
   }
 }
 
