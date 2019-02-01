@@ -1,4 +1,4 @@
-import TweenMax from 'gsap/TweenMax'
+import { TweenMax, TimelineMax } from 'gsap/TweenMax'
 import imagesLoaded from 'imagesloaded'
 
 const body = document.body
@@ -67,12 +67,34 @@ class Slideshow {
   initEvents () {
     this.navCtrls.next.addEventListener('click', () => this.navigate('next'))
     this.navCtrls.prev.addEventListener('click', () => this.navigate('prev'))
+
+    document.addEventListener('keydown', (ev) => {
+      const keyCode = ev.keyCode || ev.which
+
+      if (keyCode === 39) {
+        this.navigate('next')
+      } else if (keyCode === 37) {
+        this.navigate('prev')
+      }
+    })
   }
-  navigate(direction = 'next') {
+  navigate (direction = 'next') {
     if (this.isAnimating) return
     this.isAnimating = true
 
+    const currentSlide = this.slides[this.current]
+    this.current = direction === 'next' ? this.current < this.slidesTotal - 1 ? this.current + 1 : 0 : this.current > 0 ? this.current - 1 : this.slidesTotal - 1
+    const upcomingSlide = this.slides[this.current]
 
+    this.tl = new TimelineMax({
+      onStart: () => {
+        upcomingSlide.DOM.el.classList.add('slide--current')
+      },
+      onComplete: () => {
+        currentSlide.DOM.el.classList.remove('slide--current')
+        this.isAnimating = false
+      }
+    }).add('begin')
   }
 }
 
