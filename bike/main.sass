@@ -1,0 +1,194 @@
+@import 'fonts.sass'
+
+\:root
+    --primary-color: #50e3c2
+    --secondary-color: #b5b6b8
+    --white: #fff
+    --bar-thickness: 1.2rem
+
+*
+    box-sizing: border-box
+
+html
+    font: 62.5% 'Acamin', sans-serif;
+
+body,
+html
+    margin: 0
+    height: 100%
+
+.ride
+    display: grid
+    grid-template-columns: 16rem auto 16rem
+    grid-template-rows: 16rem auto 16rem
+    grid-gap: 0px
+    width: 100vw
+    height: 100vh
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: 50% 100%
+
+.branding-logo
+    width: 90px
+    height: auto
+    grid-column: 1
+    grid-row: 1
+    justify-self: center
+    align-self: center
+    position: relative
+    z-index: 1
+
+    svg
+        fill: var(--white)
+
+.bar
+    @supports not ( backdrop-filter: blur )
+        background-color: rgba(0, 0, 0, 0.2)
+
+    backdrop-filter: blur(8px) brightness(0.8)
+    grid-column: 1
+    grid-row: 1 / span 3
+
+.box
+    grid-column: 3
+    grid-row: 1
+    background-color: rgba(255, 255, 255, 0.2)
+
+.line
+    grid-column: 3
+    grid-row: 2 / span 2
+    background-color: rgba(255, 255, 255, 0.2)
+    width: 2px
+
+.product-info
+    padding: 4vw
+    max-width: 700px
+    grid-column: 2
+    grid-row: 2
+
+    &__title
+        margin: 0 0 3rem
+        color: var(--white)
+        font-size: 8rem
+        font-weight: 700
+        line-height: 1
+
+    p
+        color: var(--secondary-color)
+        font-size: 1.6rem
+        font-weight: 500
+        line-height: 1.8
+
+    a
+        color: var(--primary-color)
+        font-size: 1.6rem
+        font-weight: 700
+        text-decoration: none
+
+.product-type
+  grid-column: 2
+  grid-row: 2
+
+.main-nav
+    grid-column: 2
+    grid-row: 1
+    justify-self: end
+    align-self: center
+    line-height: 1
+
+    a
+        margin: 0 3rem
+        color: var(--white)
+        font-size: 1.8rem
+        font-weight: 700
+        text-decoration: none
+        position: relative
+
+        &.active
+            color: var(--primary-color)
+
+            &::after
+                content: ''
+                width: 7px
+                height: 7px
+                border-radius: 50%
+                background-color: var(--primary-color)
+                position: absolute
+                left: 50%
+                bottom: -15px
+                transform: translateX(-50%)
+
+    &__search-btn
+        margin: 0 6rem 0 3rem
+        background: none
+        padding: 0
+        border: none
+        cursor: pointer
+        width: 18px
+        height: 18px
+
+    svg
+        fill: var(--white)
+
+.search
+    &__input
+        width: 0
+        height: 30px
+        display: none
+
+.menu-btn
+    grid-column: 3
+    grid-row: 1
+    background: none
+    padding: 0
+    border: none
+    width: 24px
+    height: 24px
+    fill: var(--white)
+    justify-self: center
+    align-self: center
+    cursor: pointer
+
+.social
+    padding-top: 3rem
+    grid-column: 3
+    grid-row: 2
+    justify-self: center
+    align-self: start
+    display: flex
+    flex-direction: column
+
+    a
+        margin: 3rem 0
+        color: var(--white)
+        font-size: 1.8rem
+        font-weight: 700
+        text-decoration: none
+        writing-mode: vertical-lr
+
+.lang-select
+    grid-column: 3
+    grid-row: 3
+    justify-self: center
+    align-self: center
+
+    &__btn
+        background: none
+        padding: 0
+        border: none
+        cursor: pointer
+        color: var(--white)
+        font-size: 2rem
+        font-weight: 700
+        display: inline-flex
+        align-items: center
+
+        &::after
+            margin-left: 5px
+            content: ''
+            width: 0
+            height: 0
+            --arrow: 4px
+            border-left: var(--arrow) solid transparent
+            border-right: var(--arrow) solid transparent
+            border-top: var(--arrow) solid var(--white)
