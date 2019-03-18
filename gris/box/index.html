@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gris platform effect</title>
+
+  <style type="text/css">
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #eee;
+    }
+
+    .box {
+      width: 400px;
+      height: 400px;
+    }
+    path {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div class="box">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 400">
+    <defs>
+      <pattern id="paint" patternUnits="userSpaceOnUse" width="400" height="400">
+        <image xlink:href="images/pattern.jpg" x="0" y="0" width="400" height="400" />
+      </pattern>
+      <pattern id="dark" patternUnits="userSpaceOnUse" width="400" height="400">
+        <image xlink:href="images/dark.jpg" x="0" y="0" width="400" height="400" />
+      </pattern>
+    </defs>
+    <g>
+      <path fill="url(#dark)" class="back" d="M209.1,2.82c2.44,0,2.78,0,4.9,0c-0.08,0.02-0.11,0.04-0.11,0.06c0,0.04,0.11,0.08-0.09,0.12c-3.93,0-5.39,0-7.06,0 c-1.48,0-3.11,0-6.77,0c-8.36,0-10.91,0-13.97,0c0.24-0.02,0.1-0.15,0.14-0.16c0.03,0,0.01-0.03,0.01-0.03s1.73,0,2.21,0 c0.62,0,10.67,0,13.19,0C204.35,2.82,206.31,2.82,209.1,2.82z"/>
+    	<path fill="url(#paint)" class="front" d="M209.1,2.82c2.44,0,2.78,0,4.9,0c-0.08,0.02-0.11,0.04-0.11,0.06c0,0.04,0.11,0.08-0.09,0.12 c-3.93,0-5.39,0-7.06,0c-1.48,0-3.11,0-6.77,0c-8.36,0-10.91,0-13.97,0c0.24-0.02,0.1-0.15,0.14-0.16c0.03,0,0.01-0.03,0.01-0.03 s1.73,0,2.21,0c0.62,0,10.67,0,13.19,0C204.35,2.82,206.31,2.82,209.1,2.82z"/>
+    </g>
+  </svg>
+
+  </div>
+
+
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/findShapeIndex.js"></script>
+  <!-- <script src="js/gsap/minified/utils/GSDevTools.min.js"></script> -->
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>
